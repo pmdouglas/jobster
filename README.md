@@ -1,0 +1,2 @@
+# jobster
+ angular jobster application
