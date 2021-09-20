@@ -7,16 +7,30 @@
 
 <div *ngIf="selectedPosition">
   <h2>{{selectedPosition.title | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedPosition.id}}</div>
-  <div><span>Department: </span>{{selectedPosition.department}}</div>
-  <div><span>Status: </span>{{selectedPosition.status}}</div>
-  <div><span>Created Date: </span>{{selectedPosition.creationDate}}</div>
 
   <div>
-	  <label for='descr'>Description: </label>
-	  <input id='descr' [(ngModel)]='selectedPosition.description' placeholder='description'>
+	  <label for='id'>ID: </label>
+	  <input id='id' [(ngModel)]='selectedPosition.id' placeholder='ID'>
   </div>
 
-  <div><span>descr: </span>{{selectedPosition.description}}</div>
+  <div>
+	  <label for='title'>Title: </label>
+	  <input id='title' [(ngModel)]='selectedPosition.title' placeholder='Title'>
+  </div>
+
+  <div>
+	  <label for='dept'>Department: </label>
+	  <input id='dept' [(ngModel)]='selectedPosition.department' placeholder='department'>
+  </div>
+
+  <div>
+	  <label for='status'>Status: </label>
+	  <input id='status' [(ngModel)]='selectedPosition.status' placeholder='status'>
+  </div>
+
+  <div>
+	  <label for='date'>Created Date: </label>
+	  <input id='date' [(ngModel)]='selectedPosition.creationDate' placeholder='Created Date'>
+  </div>
   
 </div>
