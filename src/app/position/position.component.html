@@ -1,0 +1,22 @@
+<h2>My positions</h2>
+<ul class="positions">
+  <li *ngFor="let position of positions"  (click)="onSelect(position)">
+    <span class="badge">{{position.id}}</span> {{position.title}}
+  </li>
+</ul>
+
+<div *ngIf="selectedPosition">
+  <h2>{{selectedPosition.title | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedPosition.id}}</div>
+  <div><span>Department: </span>{{selectedPosition.department}}</div>
+  <div><span>Status: </span>{{selectedPosition.status}}</div>
+  <div><span>Created Date: </span>{{selectedPosition.creationDate}}</div>
+
+  <div>
+	  <label for='descr'>Description: </label>
+	  <input id='descr' [(ngModel)]='selectedPosition.description' placeholder='description'>
+  </div>
+
+  <div><span>descr: </span>{{selectedPosition.description}}</div>
+  
+</div>
