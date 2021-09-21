@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Position } from '../Position';
-import { POSITIONS } from '../mock-positions';
+import { PositionService } from '../position.service';
+
 
 @Component({
   selector: 'app-position',
@@ -9,17 +10,37 @@ import { POSITIONS } from '../mock-positions';
 })
 export class PositionComponent implements OnInit {
 
-  positions = POSITIONS;
+  positions: Position[] = [];
+  newPosition: Position = this.createPosition();
   
-  constructor() { }
+  constructor(private positionService: PositionService) { }
   
-  selectedPosition?: Position;
+  ngOnInit() {
+  	this.getPositions();
+  }
   
-  onSelect(position:Position): void {
-  	this.selectedPosition = position;
-  }  
+  getPositions(): void {
+  	this.positionService.getPositions().subscribe(positions => this.positions = positions);
+  }
   
-  ngOnInit(): void {
+  add(newPosition: Position): void {
+    //name = name.trim();
+    if (!newPosition.title) { return; }
+    this.positionService.addPosition(newPosition)
+      .subscribe(newPosition => {
+        this.positions.push(newPosition);
+        this.newPosition = this.createPosition();
+      });
+  }
+
+  delete(position: Position): void {
+    this.positions = this.positions.filter(p => p !== position);
+    this.positionService.deletePosition(position.id).subscribe();
+  }
+  
+  createPosition(): Position{
+  	 //return { id: null, title: '', department: '', description: '', status: '', creationDate: ''}; 
+  	 return {} as Position;
   }
 
 }

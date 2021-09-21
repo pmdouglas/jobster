@@ -4,20 +4,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { PositionComponent } from './position/position.component';
+import { MessagesComponent } from './messages/messages.component';
+import { PositionDetailComponent } from './position-detail/position-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PositionComponent
+    PositionComponent,
+    MessagesComponent,
+    PositionDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })  //mock http server. intercepts requests and returns simulated responses
   ],
   providers: [],
   bootstrap: [AppComponent]

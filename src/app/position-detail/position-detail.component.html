@@ -1,0 +1,32 @@
+
+<div *ngIf="position">
+  <h2>{{position.title | uppercase}} Details</h2>
+
+  <div>
+	  <label for='id'>ID: </label>
+	  <input id='id' [(ngModel)]='position.id' placeholder='ID'>
+  </div>
+
+  <div>
+	  <label for='title'>Title: </label>
+	  <input id='title' [(ngModel)]='position.title' placeholder='Title'>
+  </div>
+
+  <div>
+	  <label for='dept'>Department: </label>
+	  <input id='dept' [(ngModel)]='position.department' placeholder='department'>
+  </div>
+
+  <div>
+	  <label for='status'>Status: </label>
+	  <input id='status' [(ngModel)]='position.status' placeholder='status'>
+  </div>
+
+  <div>
+	  <label for='date'>Created Date: </label>
+	  <input id='date' [(ngModel)]='position.creationDate' placeholder='Created Date'>
+  </div>
+  
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
