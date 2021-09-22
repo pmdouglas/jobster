@@ -1,0 +1,37 @@
+
+<div *ngIf="candidate">
+  <h2>{{candidate.name | uppercase}} Details</h2>
+
+  <div>
+	  <label for='id'>ID: </label>
+	  <input id='id' [(ngModel)]='candidate.id' placeholder='ID'>
+  </div>
+
+  <div>
+	  <label for='name'>Name: </label>
+	  <input id='name' [(ngModel)]='candidate.name' placeholder='name'>
+  </div>
+
+  <div>
+	  <label for='level'>Level: </label>
+	  <input id='level' [(ngModel)]='candidate.level' placeholder='level'>
+  </div>
+
+  <div>
+	  <label for='skills'>Skills: </label>
+	  <input id='skills' [(ngModel)]='candidate.skills' placeholder='skills'>
+  </div>
+
+  <div>
+	  <label for='applyTo'>Apply To: </label>
+	  <input id='applyTo' [(ngModel)]='candidate.applyTo' placeholder='Apply To'>
+  </div>
+  
+  <div>
+	  <label for='accepted'>Accepted: </label>
+	  <input id='accepted' [(ngModel)]='candidate.accepted' placeholder='Accepted'>
+  </div>
+  
+  <button (click)="goBack()">Go Back</button>
+  <button (click)="save()">Save</button>
+</div>

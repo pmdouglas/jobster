@@ -10,6 +10,8 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { PositionComponent } from './position/position.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PositionDetailComponent } from './position-detail/position-detail.component';
+import { CandidatesComponent } from './candidates/candidates.component';
+import { CandidateDetailComponent } from './candidate-detail/candidate-detail.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { PositionDetailComponent } from './position-detail/position-detail.compo
     AppComponent,
     PositionComponent,
     MessagesComponent,
-    PositionDetailComponent
+    PositionDetailComponent,
+    CandidatesComponent,
+    CandidateDetailComponent
   ],
   imports: [
     BrowserModule,

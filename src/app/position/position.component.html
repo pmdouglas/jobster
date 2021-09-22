@@ -1,8 +1,9 @@
 <h2>My positions</h2>
 <ul class="positions">
   <li *ngFor="let position of positions">
-    <a routerLink='/detail/{{position.id}}'> 
-    	<span class='badge'>{{position.id}}</span>{{position.title}}
+    <a routerLink='/positionDetail/{{position.id}}'> 
+    	<span class='badge'>{{position.id}}</span>
+    	<span>{{position.title}}</span>
     </a>
     <button class="delete" title="delete position" (click)="delete(position)">x</button>
   </li>

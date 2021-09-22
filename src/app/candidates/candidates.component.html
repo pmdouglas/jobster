@@ -1,0 +1,42 @@
+<h2>My Candidates</h2>
+<ul class="candidates">
+  <li *ngFor="let candidate of candidates">
+    <a routerLink='/candidateDetail/{{candidate.id}}'> 
+    	<span class='badge'>{{candidate.id}}</span>
+    	<span>{{candidate.name}}</span>
+    </a>
+    <button class="delete" title="delete candidate" (click)="delete(candidate)">x</button>
+  </li>
+</ul>
+
+<div>
+  <h2>New Candidate</h2>
+    <div>
+   	  <label for='name'>Name: </label>
+   	  <input id='name' [(ngModel)]='newCandidate.name' placeholder='name'>
+    </div>
+
+    <div>
+   	  <label for='level'>Level: </label>
+   	  <input id='level' [(ngModel)]='newCandidate.level' placeholder='level'>
+    </div>
+
+    <div>
+   	  <label for='skills'>Skills: </label>
+   	  <input id='skills' [(ngModel)]='newCandidate.skills' placeholder='skills'>
+    </div>
+
+    <div>
+   	  <label for='applyTo'>Apply To: </label>
+   	  <select id='applyTo' [(ngModel)]='newCandidate.applyTo'>
+   	  	<option disabled>Select Position</option>
+   	  	<option *ngFor="let position of positions" [value]="position.id">{{position.title}}</option>
+   	  </select>
+   	</div>
+
+   	<div>
+   		<label for='accepted'>Accepted: </label>
+   		<input id='accepted' [(ngModel)]='newCandidate.accepted' placeholder='Accepted'>
+   	</div>
+  <button class='add-button' (click)="add(newCandidate)">Add Candidate</button>
+</div>

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Position } from './Position'
-import { POSITIONS } from './mock-positions'
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -29,7 +28,7 @@ export class PositionService {
 
   /** GET position by id. Will 404 if id not found */
   getPosition(id: number): Observable<Position> {
-    const url = '${this.positionsUrl}/${id}';
+    const url = this.positionsUrl+ '/' +id;
     return this.http.get<Position>(url).pipe(
       tap(_ => this.log('fetched position id=' + id)),
       catchError(this.handleError<Position>('getposition id='+id))

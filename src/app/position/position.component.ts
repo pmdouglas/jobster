@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Position } from '../Position';
 import { PositionService } from '../position.service';
 
-
 @Component({
   selector: 'app-position',
   templateUrl: './position.component.html',
@@ -39,7 +38,6 @@ export class PositionComponent implements OnInit {
   }
   
   createPosition(): Position{
-  	 //return { id: null, title: '', department: '', description: '', status: '', creationDate: ''}; 
   	 return {} as Position;
   }
 
